@@ -19,6 +19,18 @@
       "types": "./dist/posts.d.ts",
       "default": "./dist/posts.js"
     },
+    "./analytics": {
+      "types": "./dist/analytics.d.ts",
+      "default": "./dist/analytics.js"
+    },
+    "./dom": {
+      "types": "./dist/dom.d.ts",
+      "default": "./dist/dom.js"
+    },
+    "./wire-route": {
+      "types": "./dist/wire-route.d.ts",
+      "default": "./dist/wire-route.js"
+    },
     "./tokens.css": "./dist/tokens.css"
   },
   "files": [

@@ -1,7 +1,10 @@
 {
   "name": "skillet-shared",
-  "private": true,
   "version": "0.1.0",
+  "description": "Code shared by bender and videoskillet",
+  "license": "MIT",
+  "author": "Colin Diesh",
+  "repository": "github:cmdcolin/skillet-shared",
   "type": "module",
   "exports": {
     "./history": "./src/history.ts",
@@ -9,7 +12,10 @@
     "./posts": "./src/posts.ts",
     "./tokens.css": "./src/tokens.css"
   },
-  "files": ["src"],
+  "files": ["src", "!src/**/*.test.ts"],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc"

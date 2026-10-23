@@ -7,12 +7,21 @@
   "repository": "github:cmdcolin/skillet-shared",
   "type": "module",
   "exports": {
-    "./history": "./src/history.ts",
-    "./relative-time": "./src/relative-time.ts",
-    "./posts": "./src/posts.ts",
-    "./tokens.css": "./src/tokens.css"
+    "./history": {
+      "types": "./dist/history.d.ts",
+      "default": "./dist/history.js"
+    },
+    "./relative-time": {
+      "types": "./dist/relative-time.d.ts",
+      "default": "./dist/relative-time.js"
+    },
+    "./posts": {
+      "types": "./dist/posts.d.ts",
+      "default": "./dist/posts.js"
+    },
+    "./tokens.css": "./dist/tokens.css"
   },
-  "files": ["src", "!src/**/*.test.ts"],
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },
@@ -20,6 +29,8 @@
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc",
+    "build": "tsc -p tsconfig.build.json && cp src/tokens.css dist/",
+    "prepack": "pnpm build",
     "preversion": "pnpm typecheck && pnpm test",
     "postversion": "git push --follow-tags"
   },

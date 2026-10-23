@@ -11,4 +11,5 @@ Both apps run it through Vite, so imports keep their `.ts` form and need no buil
 
 - `pnpm test` and `pnpm typecheck` run the package's own suite
 - In an app, `pnpm link ../skillet-shared` tests an edit before it is tagged
-- Release: bump `version`, tag it, `npm publish`, then bump the range in each app
+- Release: `pnpm version patch` (or `minor`). It tests, tags and pushes, and CI publishes to npm through trusted publishing
+- Then bump the range in each app

@@ -16,9 +16,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "packageManager": "pnpm@11.20.0",
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "preversion": "pnpm typecheck && pnpm test",
+    "postversion": "git push --follow-tags"
   },
   "peerDependencies": {
     "astro": "^7.4.2"

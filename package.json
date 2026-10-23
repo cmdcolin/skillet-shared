@@ -1,6 +1,6 @@
 {
   "name": "skillet-shared",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Code shared by bender and videoskillet",
   "license": "MIT",
   "author": "Colin Diesh",
@@ -21,7 +21,9 @@
     },
     "./tokens.css": "./dist/tokens.css"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },

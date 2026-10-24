@@ -41,7 +41,15 @@
     "./components/SocialMeta.astro": "./components/SocialMeta.astro",
     "./components/SignedInHint.astro": "./components/SignedInHint.astro",
     "./site.css": "./css/site.css",
-    "./footer.css": "./css/footer.css"
+    "./footer.css": "./css/footer.css",
+    "./saved-list": {
+      "types": "./dist/saved-list.d.ts",
+      "default": "./dist/saved-list.js"
+    },
+    "./cloud": {
+      "types": "./dist/cloud.d.ts",
+      "default": "./dist/cloud.js"
+    }
   },
   "files": [
     "dist",
@@ -61,11 +69,13 @@
     "postversion": "git push --follow-tags"
   },
   "peerDependencies": {
-    "astro": "^7.4.2"
+    "astro": "^7.4.2",
+    "firebase": "^13.1.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
     "astro": "^7.4.2",
+    "firebase": "13.1.0",
     "typescript": "^7.0.2",
     "vitest": "^5.0.5"
   }

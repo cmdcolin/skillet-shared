@@ -31,10 +31,22 @@
       "types": "./dist/wire-route.d.ts",
       "default": "./dist/wire-route.js"
     },
-    "./tokens.css": "./dist/tokens.css"
+    "./tokens.css": "./dist/tokens.css",
+    "./site-info": {
+      "types": "./dist/site-info.d.ts",
+      "default": "./dist/site-info.js"
+    },
+    "./components/SiteBar.astro": "./components/SiteBar.astro",
+    "./components/Footer.astro": "./components/Footer.astro",
+    "./components/SocialMeta.astro": "./components/SocialMeta.astro",
+    "./components/SignedInHint.astro": "./components/SignedInHint.astro",
+    "./site.css": "./css/site.css",
+    "./footer.css": "./css/footer.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "components",
+    "css"
   ],
   "publishConfig": {
     "access": "public"

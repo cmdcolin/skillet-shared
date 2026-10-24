@@ -1,0 +1,19 @@
+---
+import type { SiteInfo } from '../dist/site-info.js'
+
+interface Props {
+  site: SiteInfo
+}
+const { site } = Astro.props
+---
+
+<footer class="siteFoot">
+  <div class="footIn">
+    <nav aria-label="Site">
+      {site.footer.map(([href, label]) => (
+        <a href={href}>{label}</a>
+      ))}
+      <a href="#top">Back to top ↑</a>
+    </nav>
+  </div>
+</footer>

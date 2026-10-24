@@ -1,0 +1,28 @@
+---
+interface Props {
+  hint: string
+}
+const { hint: SIGNED_IN_HINT } = Astro.props
+---
+<script is:inline define:vars={{ SIGNED_IN_HINT }}>
+  try {
+    if (localStorage.getItem(SIGNED_IN_HINT) === '1') {
+      const root = document.documentElement
+      root.dataset.home = 'pending'
+      for (const host of [
+        'identitytoolkit.googleapis.com',
+        'securetoken.googleapis.com',
+        'firestore.googleapis.com',
+      ]) {
+        const link = document.createElement('link')
+        link.rel = 'preconnect'
+        link.href = `https://${host}`
+        link.crossOrigin = 'anonymous'
+        document.head.append(link)
+      }
+      setTimeout(() => {
+        delete root.dataset.home
+      }, 15000)
+    }
+  } catch {}
+</script>

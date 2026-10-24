@@ -49,6 +49,18 @@
     "./cloud": {
       "types": "./dist/cloud.d.ts",
       "default": "./dist/cloud.js"
+    },
+    "./base64url": {
+      "types": "./dist/base64url.d.ts",
+      "default": "./dist/base64url.js"
+    },
+    "./session-gate": {
+      "types": "./dist/session-gate.d.ts",
+      "default": "./dist/session-gate.js"
+    },
+    "./firebase-config": {
+      "types": "./dist/firebase-config.d.ts",
+      "default": "./dist/firebase-config.js"
     }
   },
   "files": [

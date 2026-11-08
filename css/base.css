@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+button,
+select,
+input,
+textarea {
+  font-family: inherit;
+}
+
+:where(button:not(:disabled)) {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fg2);
+  outline-offset: 1px;
+}

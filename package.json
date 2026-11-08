@@ -40,6 +40,7 @@
     "./components/Footer.astro": "./components/Footer.astro",
     "./components/SocialMeta.astro": "./components/SocialMeta.astro",
     "./components/SignedInHint.astro": "./components/SignedInHint.astro",
+    "./base.css": "./css/base.css",
     "./site.css": "./css/site.css",
     "./footer.css": "./css/footer.css",
     "./saved-list": {

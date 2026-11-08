@@ -71,7 +71,7 @@ export function readRecent(
   }
   const seen = new Set<string>()
   return raw
-    .flatMap(item => {
+    .flatMap((item: unknown) => {
       const session = readCurrent(item)
       const id =
         typeof item === 'object' && item !== null && 'id' in item

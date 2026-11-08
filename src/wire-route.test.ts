@@ -52,12 +52,12 @@ describe('route', () => {
   })
 })
 
-describe('arrowhead', () => {
-  // Off the same list the wire is routed from — which is the whole point, and
-  // what nothing checked while the head was built from a point and a direction
-  // the caller worked out separately.
-  const leg = (a: Point, b: Point) => arrowhead([a, b], 3, 2)
+// Off the same list the wire is routed from — which is the whole point, and
+// what nothing checked while the head was built from a point and a direction
+// the caller worked out separately.
+const leg = (a: Point, b: Point) => arrowhead([a, b], 3, 2)
 
+describe('arrowhead', () => {
   it('points the way the last leg travels', () => {
     expect(leg([0, 0], [10, 0])).toBe('M7 2L10 0L7 -2Z')
     expect(leg([0, 0], [-10, 0])).toBe('M-7 -2L-10 0L-7 2Z')

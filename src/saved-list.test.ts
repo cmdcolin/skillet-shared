@@ -45,7 +45,11 @@ test('the suggestion counts up only once the name is taken', () => {
   expect(suggestItemName([], 'dying toy', 'my item')).toBe('dying toy')
   expect(suggestItemName(list, 'dying toy', 'my item')).toBe('dying toy 2')
   expect(
-    suggestItemName(upsertItem(list, 'dying toy 2', 'p=2'), 'dying toy', 'my item'),
+    suggestItemName(
+      upsertItem(list, 'dying toy 2', 'p=2'),
+      'dying toy',
+      'my item',
+    ),
   ).toBe('dying toy 3')
   expect(suggestItemName([], '', 'my item')).toBe('my item')
 })
@@ -97,7 +101,10 @@ const r = (id: string, query = `p=${id}`, at = 1) => ({ id, query, at })
 
 test('the recent list reads in stored order and drops bad entries', () => {
   expect(
-    readRecent([r('a'), { query: 'p=1', at: 2 }, r('b'), null, r('a')], RECENT_MAX),
+    readRecent(
+      [r('a'), { query: 'p=1', at: 2 }, r('b'), null, r('a')],
+      RECENT_MAX,
+    ),
   ).toEqual([r('a'), r('b')])
   expect(readRecent(undefined, RECENT_MAX, { query: 'p=1', at: 9 })).toEqual([
     { id: '', query: 'p=1', at: 9 },
@@ -106,11 +113,12 @@ test('the recent list reads in stored order and drops bad entries', () => {
 })
 
 test('a session write moves its entry first and drops what falls off', () => {
-  expect(pushRecent([r('a'), r('b')], r('b', 'p=moved', 5), RECENT_MAX).recent).toEqual([
-    r('b', 'p=moved', 5),
-    r('a'),
-  ])
-  expect(pushRecent([r('a'), r('b')], r('c', 'p=b'), RECENT_MAX).dropped).toEqual(['b'])
+  expect(
+    pushRecent([r('a'), r('b')], r('b', 'p=moved', 5), RECENT_MAX).recent,
+  ).toEqual([r('b', 'p=moved', 5), r('a')])
+  expect(
+    pushRecent([r('a'), r('b')], r('c', 'p=b'), RECENT_MAX).dropped,
+  ).toEqual(['b'])
   const full = Array.from({ length: RECENT_MAX }, (_, i) => r(`s${i}`))
   const { recent, dropped } = pushRecent(full, r('new'), RECENT_MAX)
   expect(recent).toHaveLength(RECENT_MAX)

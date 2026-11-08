@@ -5,11 +5,13 @@ Code that bender and videoskillet both ship, as raw TypeScript and CSS.
 - **In:** nothing at build time; each app compiles the source itself
 - **Out:** modules under `skillet-shared/<name>`, listed in `exports`
 
-Both apps run it through Vite, so imports keep their `.ts` form and need no build step.
+Both apps run it through Vite, so imports keep their `.ts` form and need no
+build step.
 
 ## Develop
 
-- `pnpm test` and `pnpm typecheck` run the package's own suite
+- `pnpm test`, `pnpm typecheck` and `pnpm lint` run the package's own suite
 - In an app, `pnpm link ../skillet-shared` tests an edit before it is tagged
-- Release: `pnpm version patch` (or `minor`). It tests, tags and pushes, and CI publishes to npm through trusted publishing
+- Release: `pnpm version patch` (or `minor`). It tests, tags and pushes, and CI
+  publishes to npm through trusted publishing
 - Then bump the range in each app

@@ -75,10 +75,13 @@
   "packageManager": "pnpm@11.20.0",
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc",
+    "typecheck": "tsrs",
+    "lint": "oxlint --deny-warnings --report-unused-disable-directives",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "build": "tsc -p tsconfig.build.json && cp src/tokens.css dist/",
     "prepack": "pnpm build",
-    "preversion": "pnpm typecheck && pnpm test",
+    "preversion": "pnpm typecheck && pnpm lint && pnpm test",
     "postversion": "git push --follow-tags"
   },
   "peerDependencies": {
@@ -89,6 +92,9 @@
     "@types/node": "^26.6.5",
     "astro": "^7.4.2",
     "firebase": "13.1.0",
+    "oxfmt": "^0.77.0",
+    "oxlint": "^1.92.0",
+    "tsrs": "0.23.0-ts7.1.0-beta",
     "typescript": "^7.0.2",
     "vitest": "^5.0.5"
   }

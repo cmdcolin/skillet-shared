@@ -39,6 +39,7 @@
   /* A failed write, or a button whose job is to remove something. */
   --danger: #e08484;
 
+  --fs-2xs: 0.5625rem; /* 9px */
   --fs-xs: 0.6875rem; /* 11px */
   --fs-sm: 0.75rem; /* 12px */
   --fs: 0.8125rem; /* 13px */

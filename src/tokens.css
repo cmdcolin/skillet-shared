@@ -64,6 +64,11 @@
   --ctl-radius: 3px;
   --pill-radius: 999px;
 
+  /* The fill of the one chosen among several (a segment, a tab, an open
+     drawer's toggle), with --fg4 as its edge. A wash, so it lifts off a card
+     as well as off the page. */
+  --chosen-bg: color-mix(in srgb, var(--fg) 14%, transparent);
+
   --shadow-modal: 0 10px 30px #000b;
   --shadow-pop: 0 8px 28px #000a;
   --scrim: #000a;

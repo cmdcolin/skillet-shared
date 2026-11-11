@@ -8,6 +8,9 @@ Code that bender and videoskillet both ship, as raw TypeScript and CSS.
 Both apps run it through Vite, so imports keep their `.ts` form and need no
 build step.
 
+[`DESIGN.md`](DESIGN.md) holds the rules both apps' controls follow, and
+`src/tokens.css` the values.
+
 ## Develop
 
 - `pnpm test`, `pnpm typecheck` and `pnpm lint` run the package's own suite

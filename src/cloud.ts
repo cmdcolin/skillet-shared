@@ -32,6 +32,7 @@ export interface Sdk {
 
 export interface CloudOptions {
   config: FirebaseOptions
+  app: string
   collection: string
   listField: string
   signedInHint: string
@@ -120,11 +121,25 @@ export function createCloud(options: CloudOptions) {
     })
   }
 
+  // The apps share one Firebase sign-in, so nothing on the server says which
+  // one a person used. The rules accept this marker once per person, and a
+  // repeat sign-in is refused and ignored.
+  async function markSignIn(uid: string): Promise<void> {
+    const { db, fs } = await loadSdk()
+    await fs
+      .setDoc(fs.doc(db, 'signIns', `${options.app}_${uid}`), {
+        app: options.app,
+        at: fs.serverTimestamp(),
+      })
+      .catch(() => undefined)
+  }
+
   async function signIn(): Promise<CloudUser> {
     const { auth, authMod } = await loadSdk()
     const provider = new authMod.GoogleAuthProvider()
     const result = await authMod.signInWithPopup(auth, provider)
     storage.write(signedInHint, '1')
+    await markSignIn(result.user.uid)
     return asCloudUser(result.user)
   }
 
